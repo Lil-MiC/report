@@ -1,0 +1,68 @@
+Panel Solar
+
+function readBatteryVoltage() {
+    
+    let adcValue = pins.analogReadPin(AnalogPin.P0);
+
+    // Convert  ADC value to voltage in millivolts
+    let voltage = adcValue * 3.3 / 1023 * 2;
+
+    // Calculate the battery voltage in volts
+    voltage = voltage / 1000;
+
+    return voltage;
+}
+*************************************************************
+Panel Solar + Batteries
+basic.forever(function () {
+    
+    let batteryVoltage = readBatteryVoltage();
+
+    // Print
+    serial.writeValue("Battery Voltage", batteryVoltage);
+
+    // Delay
+    basic.pause(1000);
+});
+***********************************************************
+SENSOR
+***************************
+let moistureValue = 0
+let moistureThreshold = 500
+basic.forever(function () {
+    moistureValue = pins.analogReadPin(AnalogPin.P0)
+    if (moistureValue < moistureThreshold) {
+        basic.showNumber(1)
+    } else {
+        basic.showNumber(0)
+    }
+    basic.pause(1000)
+})
+*******************************************
+Sonar
+***********************
+let item = 0
+basic.forever(function () {
+    item = sonar.ping(
+    DigitalPin.P0,
+    DigitalPin.P1,
+    PingUnit.Centimeters
+    )
+    console.log(item)
+basic.showNumber(item)
+})
+
+************************************
+Sensor
+**************************
+basic.forever(function () {
+    dht11_dht22.queryData(
+    DHTtype.DHT22,
+    DigitalPin.P0,
+    false,
+    true,
+    true
+    )
+    basic.showString("T: " + dht11_dht22.readData(dataType.temperature) + " *C")
+    console.log(dataType.temperature)
+})
