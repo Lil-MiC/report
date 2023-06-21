@@ -1,0 +1,6 @@
+first day I meet every person and they explain the work.
+then I started to repair computers and Format to install Linux OS.
+I also try to check and fix the data base SQL ,
+I also got experience with Connecting the network , because we replace the SWITCH , it was a little bit stress but everything went well, we were a bit stressed because its Exams time now , and the exam rooms need network.
+and finally I am working on some project now ( robotic projects) , with (Arduino - Ketronik - rasberry - Micro:Bit BBC card ) using Java script
+so I made a lot of stuffs: Sonar , earth Sensor , Sonar Panel , air sensor ...
